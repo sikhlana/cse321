@@ -14,7 +14,6 @@ public class FirstComeFirstServe extends Abstract
     @Override
     public void run() throws InterruptedException
     {
-        printHeading();
         int total = getTotalProcessTime();
 
         for (int i = 0; i <= total; i++)

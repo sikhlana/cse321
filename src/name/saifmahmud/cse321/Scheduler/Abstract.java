@@ -26,6 +26,8 @@ public abstract class Abstract
 
     void printProcessTimings()
     {
+        printHeading();
+
         for (Process p : finished)
         {
             printProcess(p);
