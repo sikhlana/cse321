@@ -1,18 +1,12 @@
 package name.saifmahmud.cse321;
 
 import javafx.collections.transformation.SortedList;
-import name.saifmahmud.cse321.Scheduler.Abstract;
-import name.saifmahmud.cse321.Scheduler.FirstComeFirstServe;
-import name.saifmahmud.cse321.Scheduler.PriorityScheduling;
-import name.saifmahmud.cse321.Scheduler.ShortestJobFirst;
+import name.saifmahmud.cse321.Scheduler.*;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.util.Comparator;
-import java.util.LinkedList;
-import java.util.PriorityQueue;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main
 {
@@ -28,6 +22,10 @@ public class Main
 
         /*--- Priority Scheduling ---*/
         priority();
+        System.out.println();
+
+        /*--- Round Robin ---*/
+        rr();
         System.out.println();
     }
 
@@ -102,6 +100,30 @@ public class Main
         }
 
         PriorityScheduling scheduler = new PriorityScheduling(processes);
+        scheduler.run();
+    }
+
+    static void rr() throws FileNotFoundException, InterruptedException
+    {
+        System.out.println("Round Robin:");
+
+        FileInputStream file = new FileInputStream("rr.txt");
+        Scanner scan = new Scanner(file);
+
+        int count = scan.nextInt();
+        Queue<Process> processes = new LinkedList<>();
+
+        for (int i = 0; i < count; i++)
+        {
+            Process process = new Process();
+
+            process.id = i + 1;
+            process.burst = scan.nextInt();
+
+            processes.add(process);
+        }
+
+        RoundRobin scheduler = new RoundRobin(processes);
         scheduler.run();
     }
 }
