@@ -3,7 +3,6 @@ package name.saifmahmud.cse321.Scheduler;
 import name.saifmahmud.cse321.Process;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.Queue;
 
 public class ShortestJobFirst extends Abstract

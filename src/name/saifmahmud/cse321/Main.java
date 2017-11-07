@@ -1,9 +1,10 @@
 package name.saifmahmud.cse321;
 
-import javafx.collections.transformation.SortedList;
-import name.saifmahmud.cse321.Scheduler.*;
+import name.saifmahmud.cse321.Scheduler.FirstComeFirstServe;
+import name.saifmahmud.cse321.Scheduler.PriorityScheduling;
+import name.saifmahmud.cse321.Scheduler.RoundRobin;
+import name.saifmahmud.cse321.Scheduler.ShortestJobFirst;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.*;
