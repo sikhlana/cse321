@@ -9,7 +9,7 @@ import java.util.Queue;
 public abstract class Abstract
 {
     protected Queue<Process> processes;
-    protected PriorityQueue<Process> finished = new PriorityQueue<>(new Comparator<Process>() { public int compare(Process p1, Process p2) { return p1.id - p2.id; } });
+    protected PriorityQueue<Process> finished = new PriorityQueue<>(Comparator.comparingInt(p -> p.id));
 
     public Abstract(Queue<Process> processes)
     {
@@ -28,9 +28,9 @@ public abstract class Abstract
     {
         printHeading();
 
-        for (Process p : finished)
+        while (!finished.isEmpty())
         {
-            printProcess(p);
+            printProcess(finished.remove());
         }
     }
 
