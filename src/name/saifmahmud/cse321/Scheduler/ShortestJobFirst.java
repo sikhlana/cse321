@@ -45,7 +45,7 @@ public class ShortestJobFirst extends Abstract
 
                 for (Process pp : processes)
                 {
-                    if (pp.equals(p))
+                    if (pp.equals(p) || toRemove.contains(pp))
                     {
                         continue;
                     }
